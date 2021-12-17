@@ -34,6 +34,24 @@ void setteInn(int position, int value) {
     }
     printf("Createt a node\n");
 }
+
+void displayOne (int position) {
+    struct node *temp = get(position);
+
+    printf("The second of the node has the value %i, and the memory address %p\n", temp->value, &temp);
+    free(temp);
+}
+
+void displayAll () {
+    struct node *current = head;
+
+    while (current != NULL) {
+        printf("The second of the node has the value %i, and the memory address %p\n", current->value, &current);
+
+        current = current->next;
+    }
+    free(current);
+}
 /*følgende funksjoner må inn her er et sted:
     * void push_back(const int value)
         Add a value to the back of your list
@@ -49,7 +67,11 @@ int main() {
     head = 0;
 
     setteInn(0, 5);
-    printf("%i, %i", head->value, head->next);
+    setteInn(1, 10);
+    setteInn(2, 20);
+
+    displayOne(2);
+    displayAll();
 
 
     return 0;
