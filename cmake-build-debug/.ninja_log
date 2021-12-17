@@ -1,0 +1,11 @@
+# ninja log v5
+0	469	6614353006726017	CMakeFiles/assignment8_1c.dir/main.c.obj	fb98c0ecdb98681a
+471	970	6614353011762447	assignment8_1c.exe	b1228a64084dcd7c
+4	363	6614353719897871	CMakeFiles/assignment8_1c.dir/main.c.obj	fb98c0ecdb98681a
+364	749	6614353723367880	assignment8_1c.exe	b1228a64084dcd7c
+3	379	6614353950194753	CMakeFiles/assignment8_1c.dir/main.c.obj	fb98c0ecdb98681a
+380	726	6614353953620372	assignment8_1c.exe	b1228a64084dcd7c
+3	207	6614354326825191	CMakeFiles/assignment8_1c.dir/main.c.obj	fb98c0ecdb98681a
+209	557	6614354329995190	assignment8_1c.exe	b1228a64084dcd7c
+3	221	6614354495325582	CMakeFiles/assignment8_1c.dir/main.c.obj	fb98c0ecdb98681a
+224	556	6614354498465607	assignment8_1c.exe	b1228a64084dcd7c
