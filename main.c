@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 
 struct node {
     int value;
@@ -9,12 +11,12 @@ struct node {
 struct node* head;
 
 struct node* get (int position) {
-    struct node *naavaerende = head;
+    struct node *current = head;
 
-    for (int i = 0; i < position; ++i) {
-        naavaerende = naavaerende->next;
+    for (int i = 0; i < position; i++) {
+        current = current->next;
     }
-    return naavaerende;
+    return current;
 }
 
 void setteInn(int position, int value) {
@@ -26,53 +28,71 @@ void setteInn(int position, int value) {
         newNode->next = head;
         head = newNode;
     } else {
-        struct node *forrige = get(position - 1);
-        struct node *naavaerende = forrige->next;
+        struct node *previous = get(position - 1);
+        struct node *current = previous->next;
 
-        newNode->next = naavaerende;
-        forrige->next = newNode;
+        newNode->next = current;
+        previous->next = newNode;
     }
+
+
     printf("Createt a node\n");
 }
 
 void displayOne (int position) {
     struct node *temp = get(position);
 
-    printf("The second of the node has the value %i, and the memory address %p\n", temp->value, &temp);
-    free(temp);
+    printf("The node number %i has the value %i, and the memory address %p\n", position, temp->value, temp);
+
 }
 
 void displayAll () {
     struct node *current = head;
+    int curr = 0;
 
     while (current != NULL) {
-        printf("The second of the node has the value %i, and the memory address %p\n", current->value, &current);
+        printf("The node number %i has the value %i, and the memory address %p\n", curr, current->value, current);
 
         current = current->next;
+        curr++;
     }
-    free(current);
 }
-/*følgende funksjoner må inn her er et sted:
-    * void push_back(const int value)
-        Add a value to the back of your list
-    * size_t size()
-        Get the item count
-    * int& at(size_t index)
-        Retrieve item by index
-    * void remove(size_t index)
-        Remove item at specified index*/
+
+void deleteOne (int position) {
+    struct node *prev;
 
 
+    if (position == 0) {
+        prev = get(0)->next;
+        free(head);
+        head = prev;
+    } else {
+        prev = get(position - 1);
+        struct node *toDelete = prev->next;
+        prev->next = get(position)->next;
+        free(toDelete);
+    }
+
+}
 int main() {
     head = 0;
 
     setteInn(0, 5);
     setteInn(1, 10);
     setteInn(2, 20);
+    setteInn(3, 600);
+    setteInn(0, 800);
 
-    displayOne(2);
+
     displayAll();
 
+    deleteOne(1);
+
+    displayAll();
+
+    deleteOne(0);
+
+    displayAll();
 
     return 0;
 }
