@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
 
 struct node {
     int value;
@@ -34,9 +32,6 @@ void setteInn(int position, int value) {
         newNode->next = current;
         previous->next = newNode;
     }
-
-
-    printf("Createt a node\n");
 }
 
 void displayOne (int position) {
@@ -74,25 +69,39 @@ void deleteOne (int position) {
     }
 
 }
+
+int count() {
+    struct node *temp;
+    temp = head;
+    int counter = 1;
+
+    while(temp->next != 0) {
+        counter++;
+        temp = temp->next;
+    }
+    return counter;
+};
+
+
 int main() {
     head = 0;
+    int teller = 0;
 
     setteInn(0, 5);
-    setteInn(1, 10);
-    setteInn(2, 20);
-    setteInn(3, 600);
-    setteInn(0, 800);
+    setteInn(1, 30);
+    setteInn(2, 100);
+    printf("%i\n", count());
 
-
-    displayAll();
+    displayOne(1);
 
     deleteOne(1);
 
-    displayAll();
+    displayOne(1);
 
-    deleteOne(0);
+    printf("%i\n", count());
 
-    displayAll();
+
+
 
     return 0;
 }
